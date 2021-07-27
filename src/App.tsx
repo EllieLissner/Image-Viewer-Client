@@ -7,12 +7,19 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  interface IImageData {
+    location: string;
+    key: string;
+    user_name: string;
+    userId: number
+  }
+
   const [selectedFile, setSelectedFiile] = useState(null)
-  const [imageData, setImageData] = useState({
+  const [imageData, setImageData] = useState<IImageData>({
     location: '',
     key: '',
     user_name: '',
-    userId: ''
+    userId: 0
   })
   
   const config = {
@@ -37,8 +44,25 @@ function App() {
     
     const handleUpload = async(file: any) => {
       try{
-       const data = await uploadFile(file, config)
-       console.log(data.key, data.location)
+        const data = await uploadFile(file, config)
+        console.log(data.key, data.location)
+        if(data) {
+          setImageData({
+            location: data.location,
+            key: data.key,
+            user_name: 'Ellie',
+            userId: 1
+          })
+          console.log(imageData)
+        }
+      }catch(error: any) {
+        console.log(error)
+      }
+      
+      try{
+        const res = await axios.post('http://localhost:3001/', imageData)
+        console.log(res, 'Image Saved!')
+        
       }catch(error: any) {
         console.log(error)
       }
