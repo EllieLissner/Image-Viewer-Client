@@ -1,9 +1,6 @@
-import React, { ReactSVG } from 'react';
 import { useState } from 'react'
 import { uploadFile } from 'react-s3';
-// import { types} from 'react-s3'
 import axios from 'axios'
-import logo from './logo.svg';
 import './App.css';
 import ImageGallery from './ImageGallery';
 
@@ -41,12 +38,18 @@ export default function App() {
 
   return (
     <div className="App">
-        <input type="file" onChange={(e) => {
-          if (e.target.files) {
-            setSelectedFiile(e.target.files[0])
-          }
-        }}/>
-        <button onClick={() => handleUpload(selectedFile)}>Upload to S3</button>
+      <h1>Picture Saver</h1>
+      <h3>Upload your pictures to the cloud for safe keeping!</h3>
+
+      <h5> Choose your photo from your computer and just click the button to upload your photo to the cloud</h5>
+      <input type="file" onChange={(e) => {
+        if (e.target.files) {
+          setSelectedFiile(e.target.files[0])
+        }
+      }}/>
+      <button onClick={() => handleUpload(selectedFile)}>Upload to Picture Saver</button>
+
+      <h5>Here are all the photos you have uploaded!</h5>
       
       <ImageGallery refreshToken={refreshToken}/>
     </div>
