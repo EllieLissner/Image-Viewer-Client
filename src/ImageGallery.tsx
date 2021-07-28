@@ -28,6 +28,7 @@ function ImageGallery({refreshToken}:ImageGalleryProps) {
 
     return(
         <div style={{
+            padding: 24,
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
             gridGap: 24

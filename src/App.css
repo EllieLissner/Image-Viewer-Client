@@ -1,10 +1,6 @@
 .App {
   text-align: center;
-  background-color: aquamarine;
-}
-
-.App-link {
-  color: #61dafb;
+  background-color: paleturquoise;
 }
 
 h1 {
@@ -13,3 +9,10 @@ h1 {
 }
 
 
+
+button {
+  
+  background-color: green;
+  border-radius: 4px;
+  border-style: solid none;
+}
