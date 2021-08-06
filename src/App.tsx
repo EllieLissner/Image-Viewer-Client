@@ -28,7 +28,7 @@ export default function App() {
         userId: 1
       }
       console.log(data, "Image saved!")
-      const res = await axios.post('http://localhost:3001/', image)
+      const res = await axios.post('process.env.REACT_APP_SERVER_URL', image)
       console.log(res, "data saved!")
       setRefreshToken(refreshToken + 1)
     }catch(error: unknown) {
