@@ -10,7 +10,7 @@ export default function App() {
   const [refreshToken, setRefreshToken] = useState(0)
   
   const config = {
-    bucketName: process.env.REACT_APP_AWSBucket,
+    bucketName: "elliesimagestorer",
     dirName: '', /* optional */
     region: 'us-east-2',
     accessKeyId: process.env.REACT_APP_AWSAccessKeyID,
